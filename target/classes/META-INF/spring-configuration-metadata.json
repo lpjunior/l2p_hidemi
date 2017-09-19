@@ -1,0 +1,18 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "br.com.hidemiphone.storage.StorageProperties",
+      "name": "storage",
+      "type": "br.com.hidemiphone.storage.StorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "br.com.hidemiphone.storage.StorageProperties",
+      "name": "storage.location",
+      "description": "Folder location for storing files",
+      "type": "java.lang.String"
+    }
+  ]
+}
