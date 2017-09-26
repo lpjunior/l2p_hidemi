@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.DisparaEmail;
+
 @WebServlet({ "/cli/salvar", "/cli/buscar", "/cli/excluir" })
 public class ServletCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -48,16 +50,21 @@ public class ServletCliente extends HttpServlet {
 	}
 
 	private void salvar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("id") != null)
+		if (request.getParameter("id") != null) {
 			response.getWriter().append("requisicao POST via chamada editar");
-		else
+			if (DisparaEmail.envia("mauriciomourams@gmail.com"))
+				response.getWriter().append("Email enviado com sucesso");
+			else
+				response.getWriter().append("Falha ao enviar email");
+		} else {
 			response.getWriter().append("requisicao POST via chamada salvar");
+		}
 	}
 
 	// buscar pelo id
 	private void buscar(Long id, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("requisicao GET via chamada buscar pelo id " + id );
+		response.getWriter().append("requisicao GET via chamada buscar pelo id " + id);
 	}
 
 	// buscar pelo nome
